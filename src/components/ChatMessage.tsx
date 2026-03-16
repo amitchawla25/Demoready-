@@ -1,4 +1,3 @@
-import from 'react'
 import { Message } from '../lib/claude'
 
 interface ChatMessageProps {
@@ -69,14 +68,3 @@ export default function ChatMessage({ message, isLatest }: ChatMessageProps) {
 
   return (
     <div className={`flex gap-3 mb-4 ${isLatest ? 'animate-fade-up' : ''}`}>
-      <div className="w-6 h-6 bg-accent rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5">
-        <span className="text-ink font-display font-black text-xs">D</span>
-      </div>
-      <div className="flex-1 max-w-[80%]">
-        <p className="font-body text-sm text-paper leading-relaxed whitespace-pre-wrap">
-          {message.content}
-        </p>
-      </div>
-    </div>
-  )
-}
