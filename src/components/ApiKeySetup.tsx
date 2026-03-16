@@ -37,16 +37,7 @@ export default function ApiKeySetup({ onKeySubmit }: ApiKeySetupProps) {
             Connect your API key
           </h2>
           <p className="text-muted text-sm font-body leading-relaxed mb-6">
-            Your key stays in your browser. Never sent anywhere except OpenRouter's API.
-            Get yours at{' '}
-            
-              href="https://openrouter.ai/keys"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent hover:underline"
-            >
-              openrouter.ai/keys
-            </a>
+            Your key stays in your browser. Get yours at openrouter.ai/keys
           </p>
 
           <div className="space-y-3">
@@ -69,13 +60,13 @@ export default function ApiKeySetup({ onKeySubmit }: ApiKeySetupProps) {
               disabled={!key.trim()}
               className="w-full bg-accent text-ink font-display font-bold text-sm py-3 rounded-xl hover:bg-orange-500 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              Start Prep Session →
+              Start Prep Session
             </button>
           </div>
         </div>
 
         <p className="text-center text-muted text-xs font-body mt-6">
-          Built for PMs who don't wing it.
+          Built for PMs who dont wing it.
         </p>
       </div>
     </div>
