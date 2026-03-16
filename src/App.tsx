@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import ApiKeySetup from './components/ApiKeySetup'
 import ChatInterface from './components/ChatInterface'
 
