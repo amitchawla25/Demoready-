@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Message, sendMessage } from '../lib/claude'
 import ChatMessage from './ChatMessage'
 import TypingIndicator from './TypingIndicator'
