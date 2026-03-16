@@ -10,8 +10,8 @@ export default function ApiKeySetup({ onKeySubmit }: ApiKeySetupProps) {
 
   const handleSubmit = () => {
     const trimmed = key.trim()
-    if (!trimmed.startsWith('sk-ant-')) {
-      setError('Key should start with sk-ant-')
+    if (!trimmed.startsWith('sk-or-')) {
+      setError('Key should start with sk-or-')
       return
     }
     onKeySubmit(trimmed)
@@ -37,15 +37,15 @@ export default function ApiKeySetup({ onKeySubmit }: ApiKeySetupProps) {
             Connect your API key
           </h2>
           <p className="text-muted text-sm font-body leading-relaxed mb-6">
-            Your key stays in your browser. Never sent anywhere except Anthropic's API.
+            Your key stays in your browser. Never sent anywhere except OpenRouter's API.
             Get yours at{' '}
-            <a
-              href="https://console.anthropic.com"
+            
+              href="https://openrouter.ai/keys"
               target="_blank"
               rel="noopener noreferrer"
               className="text-accent hover:underline"
             >
-              console.anthropic.com
+              openrouter.ai/keys
             </a>
           </p>
 
@@ -58,7 +58,7 @@ export default function ApiKeySetup({ onKeySubmit }: ApiKeySetupProps) {
                 setError('')
               }}
               onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-              placeholder="sk-ant-api03-..."
+              placeholder="sk-or-v1-..."
               className="w-full bg-ink border border-border rounded-xl px-4 py-3 text-paper font-mono text-sm placeholder-muted focus:outline-none focus:border-accent transition-colors"
             />
             {error && (
