@@ -53,21 +53,24 @@ export async function sendMessage(
   messages: Message[],
   apiKey: string
 ): Promise<string> {
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
+  const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
+      'Authorization': `Bearer ${apiKey}`,
+      'HTTP-Referer': 'https://demoready.vercel.app',
+      'X-Title': 'DemoReady',
     },
     body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
+      model: 'anthropic/claude-sonnet-4-5',
       max_tokens: 2000,
-      system: SYSTEM_PROMPT,
-      messages: messages.map((m) => ({
-        role: m.role,
-        content: m.content,
-      })),
+      messages: [
+        { role: 'system', content: SYSTEM_PROMPT },
+        ...messages.map((m) => ({
+          role: m.role,
+          content: m.content,
+        })),
+      ],
     }),
   })
 
@@ -80,5 +83,5 @@ export async function sendMessage(
   }
 
   const data = await response.json()
-  return data.content[0]?.text || ''
+  return data.choices[0]?.message?.content || ''
 }
