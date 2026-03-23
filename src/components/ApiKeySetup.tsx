@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 
 interface ApiKeySetupProps {
   onKeySubmit: (key: string) => void
+  onWatchDemo: () => void
 }
 
-export default function ApiKeySetup({ onKeySubmit }: ApiKeySetupProps) {
+export default function ApiKeySetup({ onKeySubmit, onWatchDemo }: ApiKeySetupProps) {
   const [key, setKey] = useState('')
   const [error, setError] = useState('')
 
@@ -31,7 +32,6 @@ export default function ApiKeySetup({ onKeySubmit }: ApiKeySetupProps) {
           </div>
           <p className="text-muted text-sm font-body ml-11">Own the room. Every time.</p>
         </div>
-
         <div className="border border-border rounded-2xl p-8 bg-surface">
           <h2 className="font-display font-bold text-paper text-lg mb-2">
             Connect your API key
@@ -39,7 +39,6 @@ export default function ApiKeySetup({ onKeySubmit }: ApiKeySetupProps) {
           <p className="text-muted text-sm font-body leading-relaxed mb-6">
             Your key stays in your browser. Get yours at openrouter.ai/keys
           </p>
-
           <div className="space-y-3">
             <input
               type="password"
@@ -62,9 +61,14 @@ export default function ApiKeySetup({ onKeySubmit }: ApiKeySetupProps) {
             >
               Start Prep Session
             </button>
+            <button
+              onClick={onWatchDemo}
+              className="w-full bg-transparent border border-border text-muted font-display font-bold text-sm py-3 rounded-xl hover:border-accent hover:text-paper transition-colors"
+            >
+              Watch a demo →
+            </button>
           </div>
         </div>
-
         <p className="text-center text-muted text-xs font-body mt-6">
           Built for PMs who dont wing it.
         </p>
